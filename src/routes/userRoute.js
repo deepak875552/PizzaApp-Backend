@@ -6,4 +6,4 @@ const userRouter = express.Router();
 
 userRouter.post("/", createUser); //this is a route registration
 
-module.exports = userRouter;
+module.exports = userRouter; //exporting the route here
