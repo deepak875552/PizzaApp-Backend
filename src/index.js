@@ -13,6 +13,7 @@ const uploader = require("./middlewares/multerMiddleware");
 const cloudinary = require("./config/cloudinaryConfig");
 
 const fs = require("fs/promises");
+const productRouter = require("./routes/productRoute");
 const path = "./uploads";
 fs.access(path).catch(async () => {
   await fs.mkdir(path);
@@ -29,7 +30,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/users", userRouter);
 app.use("/carts", cartRouter);
 app.use("/auth", authRouter);
-
+app.use("/products", productRouter);
 app.get("/ping", isLoggedIn, (req, res) => {
   console.log(req.body);
   console.log(req.cookies);
